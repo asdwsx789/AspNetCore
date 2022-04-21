@@ -1,0 +1,48 @@
+Install tools
+dotnet tool install --global dotnet-ef
+> cd <the-folder-of-your-proj>
+> dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.*
+> dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.*
+> dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.1.*
+
+dotnet add package  Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package  Microsoft.EntityFrameworkCore.Tools
+dotnet add package  Microsoft.Extensions.Configuration.Json
+dotnet add package  Microsoft.Extensions.Logging.Console
+
+
+dotnet ef dbcontext scaffold -c MyDbContext "your-connection-string" Microsoft.EntityFrameworkCore.SqlServer -o Models
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+dotnet ef dbcontext scaffold "Server= 127.0.0.1;Database=master;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -o Model
+
+dotnet ef dbcontext scaffold -c MyDbContext "Server= 127.0.0.1;Database=master;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Add your connection string to appsettings.Development.json or appsettings.json. For example:
+"ConnectionStrings": {
+    "MyDbContext": "Server=(localdb)\\mssqllocaldb;Database=MyApp;Trusted_Connection=True;MultipleActiveResultSets=true"
+-----
+Finally, add a DbContext Service in your Startup::ConfigureServices():
+
+services.AddDbContext<MyDbContext>(opts=>{
+    opts.UseSqlServer(Configuration.GetConnectionString("MyDbContext"));
+});
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+  "ApplicationDbConText": "Server=127.0.0.1;Database=Pizza;User Id=sa;Password=asdwsx00;Trusted_Connection=False;MultipleActiveResultSets=True;"
+  }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+https://stackoverflow.com/questions/59764830/asp-net-core-how-to-use-existing-sql-server-db-in-visual-studio-code-cli
+https://stackoverflow.com/questions/71047821/how-to-connecte-to-sql-sever-net6-visual-studio-2022-asp-net-mvc-project
+
+Server=127.0.0.1;Database=Pizza;User Id=sa;Password=asdwsx00;Trusted_Connection=False;MultipleActiveResultSets=True;
