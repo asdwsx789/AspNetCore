@@ -2,13 +2,17 @@ Install tools
 dotnet tool install --global dotnet-ef
 > cd <the-folder-of-your-proj>
 > dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.*
-> dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.*
+> dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.* or 6.0.8
 > dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.1.*
 
+dotnet tool install --global dotnet-ef
 dotnet add package  Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package  Microsoft.EntityFrameworkCore.Tools
 dotnet add package  Microsoft.Extensions.Configuration.Json
 dotnet add package  Microsoft.Extensions.Logging.Console
+
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 
 
 dotnet ef dbcontext scaffold -c MyDbContext "your-connection-string" Microsoft.EntityFrameworkCore.SqlServer -o Models
