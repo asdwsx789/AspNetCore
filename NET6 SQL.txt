@@ -55,10 +55,9 @@ Server=127.0.0.1;Database=Pizza;User Id=sa;Password=asdwsx00;Trusted_Connection=
 
 add controller
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-cd .\path\Controllers
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet tool install -g dotnet-aspnet-codegenerator
-dotnet aspnet-codegenerator controller -name You-ControllerName
+dotnet aspnet-codegenerator controller -name You-ControllerName -outDir Controllers
 // or dotnet aspnet-codegenerator controller -name CoursesController -async -api -m Course -dc ContosouniversityContext -outDir Controllers
 
 https://learn.microsoft.com/zh-tw/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-6.0
