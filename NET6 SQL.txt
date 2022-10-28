@@ -50,3 +50,16 @@ https://stackoverflow.com/questions/59764830/asp-net-core-how-to-use-existing-sq
 https://stackoverflow.com/questions/71047821/how-to-connecte-to-sql-sever-net6-visual-studio-2022-asp-net-mvc-project
 
 Server=127.0.0.1;Database=Pizza;User Id=sa;Password=asdwsx00;Trusted_Connection=False;MultipleActiveResultSets=True;
+
+
+
+add controller
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+cd .\path\Controllers
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet aspnet-codegenerator controller -name You-ControllerName
+// or dotnet aspnet-codegenerator controller -name CoursesController -async -api -m Course -dc ContosouniversityContext -outDir Controllers
+
+https://learn.microsoft.com/zh-tw/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-6.0
+https://blog.miniasp.com/post/2020/09/09/Create-Controller-and-Views-with-dotnet-aspnet-codegenerator
