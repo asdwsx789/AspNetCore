@@ -4,4 +4,5 @@ jobs:
   check-bats-version:
     runs-on: self-hosted
     steps:
-      - run: echo hello wold 
+      - run: cd C:\\actions-runner
+      - run: echo hello wold > hello.txt
