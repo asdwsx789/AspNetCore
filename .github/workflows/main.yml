@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello from Octo Organization
-      - run:
+      - run: |
           cd C:\\actions-runner
           ls
