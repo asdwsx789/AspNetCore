@@ -8,4 +8,6 @@ jobs:
         run: echo Hello from Octo Organization
       - run: |
           cd C:\\actions-runner
+          echo hello world > hello.txt
           ls
+          
