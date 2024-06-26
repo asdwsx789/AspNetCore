@@ -4,5 +4,5 @@ jobs:
   check-bats-version:
     runs-on: self-hosted
     steps:
-      - run: cd C:\\actions-runner
-      - run: echo hello wold > hello.txt
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
